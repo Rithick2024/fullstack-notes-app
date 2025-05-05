@@ -56,7 +56,7 @@ export default function NewNote() {
     try {
       const plainTextContent = content.replace(/<[^>]*>/g, ""); // Strip HTML
 
-      const res = await fetch(`https://fullstack-notes-app-1.onrender.com/notes/`, {
+      const res = await fetch(`http://localhost:8000/notes/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
