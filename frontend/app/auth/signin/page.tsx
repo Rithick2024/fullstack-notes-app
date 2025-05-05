@@ -52,7 +52,7 @@ export default function SignIn() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${apiUrl}/signin`, {
+      const response = await fetch(`https://fullstack-notes-app-1.onrender.com/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -50,7 +50,7 @@ export default function DashboardPage() {
     const fetchNotes = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`${apiUrl}/notes?user_id=${userId}`, {
+        const res = await fetch(`https://fullstack-notes-app-1.onrender.com/notes?user_id=${userId}`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error();
@@ -85,7 +85,7 @@ export default function DashboardPage() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`${apiUrl}/notes/${id}`, {
+      const res = await fetch(`https://fullstack-notes-app-1.onrender.com/notes/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -112,7 +112,7 @@ export default function DashboardPage() {
     if (!editingNote) return;
 
     try {
-      const res = await fetch(`${apiUrl}/notes/${editingNote.note_id}`, {
+      const res = await fetch(`https://fullstack-notes-app-1.onrender.com/notes/${editingNote.note_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
