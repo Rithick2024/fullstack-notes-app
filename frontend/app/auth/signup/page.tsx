@@ -57,7 +57,7 @@ export default function SignUp() {
   async function onSubmit(values: FormValues) {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:8000/signup`, {
+      const response = await fetch(`https://fullstack-notes-app-1.onrender.com/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
