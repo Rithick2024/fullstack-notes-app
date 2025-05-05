@@ -13,7 +13,7 @@ export default function DashboardLayout({
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    // Simple auth check - in a real app, you'd use a proper auth solution
+
     const user = localStorage.getItem("user");
     if (!user) {
       router.push("/auth/signin");

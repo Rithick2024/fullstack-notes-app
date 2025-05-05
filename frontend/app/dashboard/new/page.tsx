@@ -10,7 +10,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 
-// Dynamically import react-quill to prevent SSR issues
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function NewNote() {
@@ -54,7 +53,7 @@ export default function NewNote() {
     setIsSubmitting(true);
 
     try {
-      const plainTextContent = content.replace(/<[^>]*>/g, ""); // Strip HTML
+      const plainTextContent = content.replace(/<[^>]*>/g, "");
 
       const res = await fetch(`http://localhost:8000/notes/`, {
         method: "POST",
@@ -65,7 +64,7 @@ export default function NewNote() {
         body: JSON.stringify({
           note_title: title,
           note_content: plainTextContent,
-          user_id: Number(userId), // ✅ FIXED: convert string to number
+          user_id: Number(userId),
         }),
       });
 
