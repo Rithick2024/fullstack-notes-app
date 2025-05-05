@@ -8,7 +8,6 @@ import { Loader2, PlusCircle, Trash, Pencil, Eye } from "lucide-react";
 import Link from "next/link";
 import { Modal } from "@/components/ui/modal";
 import { ViewModal } from "@/components/ui/view-modal";
-import apiUrl from '../apiUrl/baseUrl';
 
 // Type definition for a note
 type Note = {
