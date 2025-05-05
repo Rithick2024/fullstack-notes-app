@@ -57,7 +57,7 @@ export default function SignUp() {
   async function onSubmit(values: FormValues) {
     setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/signup', {
+      const response = await fetch(`${apiUrl}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
