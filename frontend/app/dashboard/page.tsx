@@ -8,6 +8,7 @@ import { Loader2, PlusCircle, Trash, Pencil, Eye } from "lucide-react";
 import Link from "next/link";
 import { Modal } from "@/components/ui/modal";
 import { ViewModal } from "@/components/ui/view-modal";
+import apiUrl from '../apiUrl/baseUrl';
 
 // Type definition for a note
 type Note = {
@@ -50,7 +51,7 @@ export default function DashboardPage() {
     const fetchNotes = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/notes?user_id=${userId}`, {
+        const res = await fetch(`${apiUrl}/notes?user_id=${userId}`, {
           credentials: "include",
         });
         if (!res.ok) throw new Error();
@@ -85,7 +86,7 @@ export default function DashboardPage() {
 
   const handleDelete = async (id: string) => {
     try {
-      const res = await fetch(`http://localhost:8000/notes/${id}`, {
+      const res = await fetch(`${apiUrl}/notes/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -112,7 +113,7 @@ export default function DashboardPage() {
     if (!editingNote) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/notes/${editingNote.note_id}`, {
+      const res = await fetch(`${apiUrl}/notes/${editingNote.note_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

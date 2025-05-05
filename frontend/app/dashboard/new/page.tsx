@@ -9,6 +9,7 @@ import { ArrowLeft, Loader2, Save } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
+import apiUrl from '../../apiUrl/baseUrl';
 
 // Dynamically import react-quill to prevent SSR issues
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -56,7 +57,7 @@ export default function NewNote() {
     try {
       const plainTextContent = content.replace(/<[^>]*>/g, ""); // Strip HTML
 
-      const res = await fetch(`http://localhost:8000/notes/`, {
+      const res = await fetch(`${apiUrl}/notes/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
