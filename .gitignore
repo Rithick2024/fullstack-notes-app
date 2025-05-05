@@ -1,0 +1,26 @@
+# Node.js (frontend)
+node_modules/
+.next/
+dist/
+.env.local
+.env.production
+.env.development
+out/
+
+# Python (backend)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+*.env
+
+# OS / Editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log
