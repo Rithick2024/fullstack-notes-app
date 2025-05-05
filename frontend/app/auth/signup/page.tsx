@@ -76,7 +76,6 @@ export default function SignUp() {
 
       const data = await response.json();
 
-      // Save user data locally (in real apps, use auth tokens instead)
       localStorage.setItem("user", JSON.stringify(data));
 
       toast({

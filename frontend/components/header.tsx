@@ -29,11 +29,9 @@ export function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const [user, setUser] = useState<any>(null);
 
-  // Handle hydration issues by only rendering theme toggle on client
   useEffect(() => {
     setIsMounted(true);
     
-    // Get user from localStorage
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));

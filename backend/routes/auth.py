@@ -7,7 +7,6 @@ router = APIRouter()
 
 @router.post("/signup", response_model=UserOut)
 async def signup(user: UserCreate):
-    # Check email uniqueness
     if await db.users.find_one({"user_email": user.user_email}):
         raise HTTPException(status_code=400, detail="Email already exists")
     return await create_user(user)

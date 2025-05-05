@@ -5,18 +5,16 @@ from routes.notes import router as notes_router
 
 app = FastAPI()
 
-# ✅ Updated CORS middleware configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # For local development
-        "https://fullstack-notes-app-47gs-omn408rdx-rithicks-projects-ff74dc1c.vercel.app",  # Your deployed Vercel frontend
+        "https://fullstack-notes-app-47gs-omn408rdx-rithicks-projects-ff74dc1c.vercel.app",  # For deployed Vercel frontend
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include your routes
 app.include_router(auth_router)
 app.include_router(notes_router)

@@ -3,19 +3,18 @@ from schemas.user import UserCreate
 from db import db
 
 async def create_user(data: UserCreate):
-    # Auto-increment integer user_id
+
     last = await db.users.find_one(sort=[("user_id", -1)])
     next_id = (last["user_id"] + 1) if last else 1
     user = {
         "user_id": next_id,
         "user_name": data.user_name,
         "user_email": data.user_email,
-        "password": data.password,  # plain-text (not secure)
+        "password": data.password,
         "created_on": datetime.utcnow(),
         "last_update": datetime.utcnow()
     }
     await db.users.insert_one(user)
-    # Remove password before returning
     user.pop("password")
     return user
 

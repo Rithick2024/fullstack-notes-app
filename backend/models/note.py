@@ -10,7 +10,7 @@ async def create_note(data: NoteCreate):
         "note_id": next_id,
         "note_title": data.note_title,
         "note_content": data.note_content,
-        "user_id": data.user_id,  # ✅ Include user_id
+        "user_id": data.user_id,
         "created_on": datetime.utcnow(),
         "last_update": datetime.utcnow()
     }

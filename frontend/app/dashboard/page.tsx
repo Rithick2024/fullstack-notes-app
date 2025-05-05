@@ -9,14 +9,12 @@ import Link from "next/link";
 import { Modal } from "@/components/ui/modal";
 import { ViewModal } from "@/components/ui/view-modal";
 
-// Type definition for a note
 type Note = {
   note_id: string;
   note_title: string;
   note_content: string;
 };
 
-// Helper function to truncate content based on word count
 function getPreviewWords(html: string, maxWords: number): string {
   const tempElement = document.createElement("div");
   tempElement.innerHTML = html;
