@@ -116,10 +116,16 @@ export default function DashboardPage() {
           "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify({ note_title: title, note_content: content }),
+        body: JSON.stringify({
+          note_title: title,
+          note_content: content,
+          user_id: userId, // ✅ Add this line
+        }),
       });
+
       if (!res.ok) throw new Error();
       toast({ title: "Note updated" });
+
       setNotes((prev) =>
         prev.map((note) =>
           note.note_id === editingNote.note_id
@@ -222,7 +228,7 @@ export default function DashboardPage() {
 
       {editingNote && (
         <Modal
-          isOpen={Boolean(editingNote)}
+          isOpen={!!editingNote}
           onClose={() => setEditingNote(null)}
           onSave={handleSave}
           note={editingNote}
